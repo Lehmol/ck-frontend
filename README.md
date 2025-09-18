@@ -12,3 +12,6 @@ If you already **have** the repo locally:
 - Go to your git bash
 - Make sure you're in the project ck-components and that you're standing in main
 - git pull (this will pull down all of the recent changes, if there are any, to you locally)
+<br>
+<br>
+## How to use it
