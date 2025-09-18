@@ -15,3 +15,4 @@ If you already **have** the repo locally:
 <br>
 <br>
 ## How to use it
+Simple guide of how to use this repo.
