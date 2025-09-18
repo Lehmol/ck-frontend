@@ -14,5 +14,5 @@ If you already **have** the repo locally:
 - git pull (this will pull down all of the recent changes, if there are any, to you locally)
 <br>
 <br>
-## How to use it
+### How to use it
 Simple guide of how to use this repo.
