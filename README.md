@@ -1,6 +1,6 @@
-# Commit Kings - Components repository
+# Commit Kings - Frontend repository
 
-This is the Components repository for a Gomoku game
+This is the frontend repository for a Gomoku game
 
 ## Installation
 
@@ -12,13 +12,13 @@ If you don't have this repository lacally alredy, here is the steps you can foll
 
 3. git clone (URL)
 
-4. go to main by doing this steps: cd ck-Components
+4. go to main by doing this steps: cd ck-frontend
 
 If you already have the repo locally:
 
 1. Go to your git bash
 
-2. Make sure you are in the tight project ck-Components and that you're standing in main
+2. Make sure you are in the right project ck-frontend and that you're standing in main
 
 3. Use git pull, this will pull down all of the recent changes that are made, if there are any to you locally.
 
