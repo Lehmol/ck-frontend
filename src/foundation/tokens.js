@@ -1,0 +1,3 @@
+<AppStyles>
+	<App />
+</Appstyles>
