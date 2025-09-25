@@ -1,10 +1,10 @@
 # Commit Kings - Frontend repository
 
-This is the frontend repository for a Gomoku game
+This is the frontend repository, also called APP, for a Gomoku game
 
 ## Installation
 
-If you don't have this repository lacally alredy, here is the steps you can follow to clone it.If you don’t already have this repository locally, here are the steps you can follow to clone it.
+If you don't have this repository locally alredy, here is the steps you can follow to clone it.If you don’t already have this repository locally, here are the steps you can follow to clone it.
 
 1. Go to your git bash
 
