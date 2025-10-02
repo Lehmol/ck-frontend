@@ -10,8 +10,8 @@ import { Piece } from '@ck/ck-components';
 const App = () => {
 	return (
 		<div>
-		<Button />
 		<GameBoard />
+		<Button />
 		<Piece />
 		</div>
 	 //<AppProvider>
