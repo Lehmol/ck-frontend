@@ -1,0 +1,12 @@
+name: CommitKings FrontEnd
+
+on:
+  push: 
+    branches: [ main ]
+
+jobs:
+  react-on-push: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Message
+      run: echo "this workflow runs by Linnea."
