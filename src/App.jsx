@@ -5,6 +5,7 @@
 import { Button } from "@ck/ck-components";
 import { GameBoard } from "@ck/ck-components";
 import { Background } from "@ck/ck-components";
+import { Players } from "@ck/ck-components";
 
 const App = () => {
   return (
