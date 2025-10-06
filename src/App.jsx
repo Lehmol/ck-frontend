@@ -4,23 +4,14 @@
 //import Approutes from './routes/AppRoutes.jsx';
 import { Button } from "@ck/ck-components";
 import { GameBoard } from "@ck/ck-components";
-
-import { Piece } from '@ck/ck-components';
+import { Background } from "@ck/ck-components";
 
 const App = () => {
-	return (
-		<div>
-		<GameBoard />
-		<Button />
-		<Piece />
-		</div>
-	 //<AppProvider>
-	//	<BrowserRouter>
-	//		<PageShell>
-	//			<AppRoutes />
-	//		</PageShell>
-	//	</BrowserRouter>
-	//</AppProvider>
-	);
-}; 
+  return (
+    <Background>
+      <GameBoard />
+      <Button />
+    </Background>
+  );
+};
 export default App;
