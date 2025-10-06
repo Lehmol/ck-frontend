@@ -1,4 +1,4 @@
-### Commit Kings - Frontend repository
+# Commit Kings - Frontend repository
 
 This is the frontend repository, also called APP, for a Gomoku game
 
