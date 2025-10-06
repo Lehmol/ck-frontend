@@ -1,0 +1,14 @@
+name: Linneas action
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  react_on_push:
+    runs-on: ubuntu latest
+    steps:
+      - name: discord
+        uses: sebastianpopp/discord-action@releases/v2
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          message: ${{ github.actor }} has successfully pushed to main.
