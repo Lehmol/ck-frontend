@@ -1,4 +1,3 @@
-
 // ApiProvider.jsx
 const BASE_URL = "http://localhost:3001";
 
@@ -70,10 +69,13 @@ export const getPlayers = async () => {
 // join game
 export const getJoin = async (game, player) => {
   try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/player/join/${game}/${player}`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
+    const res = await fetch(
+      `${BASE_URL}/api/gomoku/player/join/${game}/${player}`,
+      {
+        method: "GET",
+        headers: { Accept: "application/json" },
+      }
+    );
     if (!res.ok) throw new Error(`Status ${res.status}`);
     const data = await res.json();
     console.log("Hämtade Join:", data);
@@ -135,4 +137,3 @@ export const getPlayerId = async (id) => {
     return null;
   }
 };
-
