@@ -1,139 +1,38 @@
-// ApiProvider.jsx
-const BASE_URL = "http://localhost:3001";
 
-export const getGames = async () => {
-  try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/games`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Games:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Games:", error);
-    return null;
-  }
-};
+// src/providers/ApiProvider.jsx
+import { createContext, useContext } from "react";
 
-export const getAdd = async () => {
-  try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/games/add`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Add:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Add:", error);
-    return null;
-  }
-};
+const ApiContext = createContext();
 
-// 🧩 Här tar vi emot id som argument
-export const getId = async (id) => {
-  try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/games/${id}`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Game by ID:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Game by ID:", error);
-    return null;
-  }
-};
+// 🧠 Hämta bas-URL från miljövariabel
+const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 
-export const getPlayers = async () => {
-  try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/players`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Players:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Players:", error);
-    return null;
-  }
-};
+export function ApiProvider({ children }) {
+  // En funktion som alla kan använda för att prata med API:t
+  async function apiFetch(endpoint, options = {}) {
+    try {
+      const response = await fetch(`${BASE_URL}${endpoint}`, options);
 
-// join game
-export const getJoin = async (game, player) => {
-  try {
-    const res = await fetch(
-      `${BASE_URL}/api/gomoku/player/join/${game}/${player}`,
-      {
-        method: "GET",
-        headers: { Accept: "application/json" },
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
       }
-    );
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Join:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Join:", error);
-    return null;
-  }
-};
 
-// spela drag
-export const getCol = async (game, player, col, row) => {
-  try {
-    const res = await fetch(
-      `${BASE_URL}/api/gomoku/player/play/${game}/${player}/${col}/${row}`,
-      {
-        method: "GET",
-        headers: { Accept: "application/json" },
-      }
-    );
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Col:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Col:", error);
-    return null;
+      return await response.json();
+    } catch (err) {
+      console.error("❌ API-fel:", err);
+      throw err;
+    }
   }
-};
 
-export const getCreate = async () => {
-  try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/player/create`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade Create:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta Create:", error);
-    return null;
-  }
-};
+  return (
+    <ApiContext.Provider value={{ apiFetch }}>
+      {children}
+    </ApiContext.Provider>
+  );
+}
 
-export const getPlayerId = async (id) => {
-  try {
-    const res = await fetch(`${BASE_URL}/api/gomoku/player/${id}`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
-    if (!res.ok) throw new Error(`Status ${res.status}`);
-    const data = await res.json();
-    console.log("Hämtade playerId:", data);
-    return data;
-  } catch (error) {
-    console.log("Kunde inte hämta playerId:", error);
-    return null;
-  }
-};
+// En "hook" så att man lätt kan använda den i andra komponenter
+export function useApi() {
+  return useContext(ApiContext);
+}
+
