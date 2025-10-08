@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { GameBoard } from "@ck/ck-components";
 import { Background } from "@ck/ck-components";
 import { PopUp } from "@ck/ck-components";
@@ -20,8 +20,8 @@ const App = () => {
   return (
     <Background>
       <Header />
-      <div className="app-container">
-        <div className="app-content">
+      <div className={styles.appContainer}>
+        <div className={styles.appContent}>
           <GameBoard playerColors={playerColors} />
           <PopUp onGameStart={handleGameStart} />
         </div>
