@@ -3,6 +3,7 @@ import { GameBoard } from "@ck/ck-components";
 import { Background } from "@ck/ck-components";
 import { PopUp } from "@ck/ck-components";
 import { useState } from "react";
+import { Header } from "@ck/ck-components";
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <Background>
+      <Header />
       <div className="app-container">
         <div className="app-content">
           <GameBoard playerColors={playerColors} />
