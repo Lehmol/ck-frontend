@@ -18,17 +18,12 @@ const App = () => {
 
   return (
     <Background>
-<<<<<<< HEAD
-      <GameBoard />
-      <PopUp />
-=======
       <div className="app-container">
         <div className="app-content">
           <GameBoard playerColors={playerColors} />
           <PopUp onGameStart={handleGameStart} />
         </div>
       </div>
->>>>>>> c07dc34137c979dd0a13aa8a03d94e83c4e2cebd
     </Background>
   );
 };
