@@ -11,7 +11,6 @@ const App = () => {
   return (
     <Background>
       <GameBoard />
-      <Players />
       <PopUp />
     </Background>
   );
